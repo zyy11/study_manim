@@ -17,9 +17,31 @@ class NameOftheScene(Scene):
 ```cmd
 python -m manim 文件名.py 场景名 -选项
 ```
-p:preview
-l:低质量(480p,15fps)
-s:导出图片
+-ps:导出最后一帧图片
+-pl:低质量(480p,15fps)
+-pm:中等质量（720p,30fps）
+-p:高质量（1440p,60fps）
+
+所有场景
+-as:导出最后一帧图片
+-al:低质量(480p,15fps)
+-am:中等质量（720p,30fps）
+-a:高质量（1440p,60fps）
+
+r HEIGHT：定义高度
+r HEIGHT,WIDTH：定义高度和宽度
+
+t:有透明度
+
+-n START：渲染START之后的动画
+-n START,END+1：渲染START和END之间的动画
+
+-o OUTPUT_NAME：输出文件名
+
+--leave_progress_bars：保留进度条
+
+
+
 
 ## 定义文字对象并在屏幕上显示
 
