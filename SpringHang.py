@@ -19,7 +19,7 @@ class Spring():
         end = self.end_obj.get_center()
         delta_x = (end - start) / 16
         dir_y = np.array([delta_x[1], -delta_x[0], 0])
-        delta_y = dir_y / np.linalg.norm(dir_y) * 0.2
+        delta_y = dir_y / np.linalg.norm(dir_y) * 0.1
         group.append(Line(start, start + delta_x - delta_y))
         for i in range(7):
             group.append(Line(start + delta_x * (2 * i + 1) + delta_y * (i % 2 * 2 - 1),
@@ -39,9 +39,10 @@ class SpringVibrator(Scene):
     def construct(self):
         obj=Object(0.01,ORIGIN,ORIGIN)
         fix_point=Dot().move_to(UP*3)
+        ceiling=Line(UP*3+LEFT*0.5,UP*3+RIGHT*0.5)
         spring=Spring(3,10,fix_point,obj.geo)
         draw_spring=always_redraw(spring.redraw_spring)
-        self.add(obj.geo, draw_spring)
+        self.add(obj.geo, draw_spring,ceiling)
         dt=0.01
 
         for i in range(200):
